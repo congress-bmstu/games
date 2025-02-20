@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCUMENT_NAME: konspect
+          DOCUMENT_NAME: konspekt
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
