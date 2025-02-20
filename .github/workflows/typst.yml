@@ -1,0 +1,32 @@
+name: pdf build typst
+on: push
+permissions:
+  contents: write
+  discussions: write
+jobs:
+  build-typst:
+    runs-on: ubuntu-latest
+    env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCUMENT_NAME: konspect
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+      - uses: typst-community/setup-typst@v4
+        with:
+          cache-dependency-path: requirements.typ
+      # Now Typst is installed and packages will be cached!
+      - run: typst compile $DOCUMENT_NAME.typ $DOCUMENT_NAME.pdf
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.DOCUMENT_NAME }}
+          path: ${{ env.DOCUMENT_NAME }}.pdf
+      - name: Release with Notes
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Build
+          body: build
+          tag_name: pdf
+          files: |
+            ${{ env.DOCUMENT_NAME }}.pdf
