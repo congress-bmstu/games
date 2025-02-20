@@ -19,3 +19,4 @@
 
 
 #include "lection1.typ"
+#include "lection2.typ"
