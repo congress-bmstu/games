@@ -20,3 +20,4 @@
 
 #include "lection1.typ"
 #include "lection2.typ"
+#include "lection3.typ"
