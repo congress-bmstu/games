@@ -32,7 +32,7 @@
   )
   // абзацы
   set par(
-    first-line-indent: 1.25cm, // абзацный отступ
+    first-line-indent: (amount: 1.25cm, all: true), // абзацный отступ
     leading: 0.75em, // межстрочный интервал (1.5em/2)
     justify: true, // выравнивание по ширине
     linebreaks: "optimized",
@@ -97,6 +97,8 @@
   set outline(
     title: none,
     indent: auto, // автоматические табуляции
+  )
+  set outline.entry(
     fill: repeat([.], gap: 5pt), // многоточие после пунктов
   )
   // подпись СОДЕРЖАНИЕ посередине
@@ -118,9 +120,9 @@
       text(
         weight: "bold",
         {
-          it.body + " "
+          it.body() + " "
           text(weight: "light", box(width: 1fr, repeat([.], gap: 5pt)))
-          " " + it.page
+          " " + it.page()
         },
       ),
     )
