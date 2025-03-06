@@ -1,5 +1,5 @@
 #import "notes.typ": *
-#import "@preview/cetz:0.3.2"
+#import "@preview/cetz:0.3.3"
 #import "@preview/cetz-plot:0.1.1": *
 
 #show math.lt.eq: math.lt.slant
@@ -405,8 +405,14 @@ $
   Проверим, есть ли седловая точка. Посчитаем минимумы по строчкам (выигрыши Б), максимумы по столбцам (выигрыши А). Среди них нет равных, следовательно седловой точки нет.
   #definition(title: "Седловая точка")[
     #set list(marker: text(baseline: -0.25em)[#emoji.pin])
-    - $max_i min_j a_(i j) = alpha$ --- нижняя цена игры.
-    - $min_j max_i a_(i j) = beta$ --- верхняя цена игры.
+    #list(
+      [
+        $max_i min_j a_(i j) = alpha$ --- нижняя цена игры.
+      ],
+      [
+        $min_j max_i a_(i j) = beta$ --- верхняя цена игры.
+      ],
+    )
     Седловая точка существует, если $alpha=beta$.
   ]
 

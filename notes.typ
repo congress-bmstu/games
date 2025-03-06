@@ -1,6 +1,6 @@
 #import "@preview/thmbox:0.1.1": *
 #import "@preview/codly:1.2.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.8": *
 #let notes(
   title: "",
   author: "",
@@ -54,7 +54,7 @@
   // аналогично предыдущему
   show list: it => {
     it
-    par()[#text(size: 0mm)[#h(0.0em)]] // когда https://github.com/typst/typst/pull/5768 войдет в релиз, убрать это
+    // par()[#text(size: 0mm)[#h(0.0em)]] // когда https://github.com/typst/typst/pull/5768 войдет в релиз, убрать это
   }
   // обнуление счетчиком рисунков таблиц и уравнений в каждой главе
   show heading.where(level: 1): it => {
@@ -65,7 +65,7 @@
     it
   }
   // нумерация уравнений
-  set math.equation(numbering: "(1)")
+  // set math.equation(numbering: "(1)")
   // формат лейблов у уравнений
   set math.equation(numbering: num => "(" + (str(counter(heading).get().at(0)) + "." + str(num)) + ")")
   // автоматическое добавление номера уравнениям при ссылке на них
