@@ -19,6 +19,16 @@
 
 
 #include "lection1.typ"
+
+#pagebreak()
 #include "lection2.typ"
+
+#pagebreak()
 #include "lection3.typ"
+
+#pagebreak()
 #include "lection4.typ"
+
+#pagebreak()
+#include "lection5.typ"
+
