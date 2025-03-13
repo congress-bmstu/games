@@ -86,7 +86,8 @@
   // Убирает точку. Было "Рисунок 1.1. Подпись" Стало: "Рисунок 1.1 Подпись"
   set figure.caption(separator: " ")
   show figure.caption: it => {
-    par(leading: 0.5em, it) // один междстрочный интервал для многострочных подписей к рисункам
+    set par(leading: 0.5em)
+    it
   }
   // Подпись к таблицам
   show figure.where(kind: table): set figure(supplement: [Таблица])
