@@ -635,5 +635,123 @@ $x$ --- параметры, $u$ --- вектор критериев, по кот
       x_1\,x_2 >= 0
     )
   $
+  Построим рисунок допустимой области, см. @ex1.
 
+  #figure(
+    placement: auto,
+    cetz.canvas(
+      {
+        import cetz.draw: *
+        set-style(
+          axes: (
+            stroke: (thickness: .5pt, dash: none, paint: auto),
+            tick: (stroke: .5pt),
+          ),
+          legend: (stroke: none, orientation: ttb, item: (spacing: .1), scale: 5%),
+        )
+        let domain = (-2, 20)
+        // set-style(mark: (symbol: ">"))
+        plot.plot(
+          name: "plot",
+          axis-style: "school-book",
+          x-min: -1.9,
+          x-max: 20,
+          y-min: -1.9,
+          y-max: 10,
+          y-tick-step: 2,
+          x-tick-step: 2,
+          x-label: $x_1$,
+          y-label: $x_2$,
+          {
+            plot.add(x => (1 - x / 18) * 6, domain: domain, label: $l_1$)
+            plot.add(x => (1 - x / 8) * 8, domain: domain, label: $l_2$)
+            plot.add-fill-between(
+              x => calc.min(
+                (1 - x / 18) * 6,
+                (1 - x / 8) * 8,
+              ),
+              x => 0,
+              domain: (0, 8),
+              style: (fill: green.lighten(70%), stroke: none),
+              label: "Допустимая\nобласть",
+            )
+            plot.add-anchor("O", (0, 0))
+            plot.add-anchor("A", (0, 6))
+            plot.add-anchor("B", (3, 5))
+            plot.add-anchor("C", (8, 0))
+          },
+        )
+        content("plot.O", $O$, anchor: "west", padding: 5pt)
+        content("plot.A", $A$, anchor: "west", padding: 5pt)
+        content("plot.B", $B$, anchor: "west", padding: 5pt)
+        content("plot.C", $C$, anchor: "south", padding: 5pt)
+      },
+      length: 50%,
+    ),
+    caption: "Допустимая область",
+  )<ex1>
+  $ F=mat(6,9;2,1;) $
+  $ f(O)=F dot vec(0,0) = vec(0,0), quad F(A)=vec(54,6), quad F(B)=vec(63,11), quad F(C)=vec(48,16) $
+  Тогда получим преобразованную область, см. @ex12.
+  #figure(
+    placement: auto,
+    cetz.canvas(
+      {
+        import cetz.draw: *
+        set-style(
+          axes: (
+            stroke: (thickness: .5pt, dash: none, paint: auto),
+            tick: (stroke: .5pt),
+          ),
+          legend: (stroke: none, orientation: ttb, item: (spacing: .1), scale: 5%),
+        )
+        let domain = (-2, 65)
+        // set-style(mark: (symbol: ">"))
+        plot.plot(
+          name: "plot",
+          axis-style: "school-book",
+          x-min: -1.9,
+          x-max: 65,
+          y-min: -1.9,
+          y-max: 65,
+          y-tick-step: 5,
+          x-tick-step: 10,
+          x-label: $f_1$,
+          y-label: $f_2$,
+          {
+            plot.add-anchor("O", (0, 0))
+            plot.add-anchor("A", (54, 6))
+            plot.add-anchor("B", (63, 11))
+            plot.add-anchor("C", (48, 16))
+            plot.add-anchor("I", (63, 16))
+            plot.add-anchor("f", (61.5, 11.5))
+            plot.add-hline(16, min: 48, max: 63, style: (stroke: (dash: "dashed", paint: blue)))
+            plot.add-vline(63, min: 11, max: 16, style: (stroke: (dash: "dashed", paint: blue)))
+          },
+        )
+        line("plot.A", "plot.B", "plot.C", "plot.O", close: true, fill: green.lighten(70%))
+        content("plot.O", $O$, anchor: "west", padding: 5pt)
+        content("plot.A", $A$, anchor: "west", padding: 5pt)
+        content("plot.B", $B$, anchor: "west", padding: 5pt)
+        content("plot.C", $C$, anchor: "south", padding: 5pt)
+        content("plot.I", $I$, anchor: "south", padding: 5pt)
+        content("plot.f", $f^*$, anchor: "east", padding: 5pt)
+        line("plot.I", "plot.f")
+      },
+      length: 50%,
+    ),
+    caption: "Новая допустимая область",
+  )<ex12>
+  Идеальная точка на новой области:
+  $ I = vec(63,16) $
+
+  Ищем точку ближайшую к идеальной $f^*, x^*$.
+  $
+    cases(
+      3f_1-f_2=173,
+      3f_1+f_2=288
+    ) => f^* = vec(61.5,11.5)
+  $
+  $ F^(-1) = -1 / 12 mat(1,-9;-2,6) = mat(-1/12, 3/4;1/6,-1/2) $
+  $ x^* = mat(-1/12, 3/4;1/6,-1/2) vec(61.5,11.5) = vec(7/2, 9/2) $
 ]
