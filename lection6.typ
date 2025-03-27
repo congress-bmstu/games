@@ -312,8 +312,8 @@ $ alpha_1 = 5, quad alpha_2 = 8 $
           [], [], [B1], [B2], [B3], [$b_i$],
           [1],
           [A1],
-          [#tr[2]#bl[#box(outset: 3pt, fill: green.lighten(80%), radius: 5pt)[$2$]<21>]---],
-          [#tr[4]#bl[#box(outset: 3pt, fill: green.lighten(80%), radius: 5pt)[$2$]<22>]---],
+          [#tr[2]#bl[#box(outset: 3pt, fill: green.lighten(80%), radius: 5pt)[$2$]]---],
+          [#tr[4]#bl[#box(outset: 3pt, fill: green.lighten(80%), radius: 5pt)[$2$]]---],
           [#tr[5]40],
           [40],
 
@@ -326,12 +326,6 @@ $ alpha_1 = 5, quad alpha_2 = 8 $
       Если все оценки отрицательные, то решение найдено.
 
       Иначе выбираем клетку с максимальной положительной оценкий и начинаем из неё цикл, двигаясь только по вертикали и горизонтали, при этом углы в заполненных клетках.
-      // #context [
-      //   #let loc(m) = {
-      //     (locate(m).position().x, locate(m).position().y)
-      //   }
-      //   #line(start: loc(<22>), end: loc(<21>))
-      // ]
     ],
   )
 

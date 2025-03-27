@@ -107,7 +107,8 @@
     text(
       weight: "bold",
       [
-        #align(center, [СОДЕРЖАНИЕ])
+        #align(center, text(size: 20pt)[СОДЕРЖАНИЕ])
+        #align(right, [c.])
       ],
     )
     it
