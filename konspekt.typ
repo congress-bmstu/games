@@ -39,3 +39,5 @@
 #pagebreak()
 #include "lection7.typ"
 
+#pagebreak()
+#include "lection8.typ"
