@@ -38,6 +38,10 @@
           x-label: $v$,
           y-label: $h$,
           {
+            plot.add-vline(4, max: 0.75, min: 0, style: (stroke: (dash: "dashed")))
+            plot.add-vline(1, max: 0.75, min: 0, style: (stroke: (dash: "dashed")))
+            plot.add-hline(4, max: 0.75, min: 0, style: (stroke: (dash: "dashed")))
+            plot.add-hline(1, max: 0.75, min: 0, style: (stroke: (dash: "dashed")))
             for i in (1, 2, 3, 4) {
               plot.add-hline(i, min: 1, max: 4, style: (stroke: black))
               plot.add-vline(i, min: 1, max: 4, style: (stroke: black))
@@ -52,6 +56,13 @@
                 (int(i / 3) + 0.15 + 1, 1 + calc.rem(i, 3) + 0.6),
               )
             }
+            for i in range(16) {
+              plot.add-anchor(str(i), (calc.rem(i, 4) + 1, int(i / 4) + 1))
+            }
+            plot.add-anchor("v0", (1, -0.175))
+            plot.add-anchor("vk", (4, -0.175))
+            plot.add-anchor("h0", (-0.175, 1))
+            plot.add-anchor("hk", (-0.175, 4))
           },
         )
         content("plot.00l", $4$)
@@ -74,6 +85,52 @@
         content("plot.12b", $6$)
         content("plot.22l", $3$)
         content("plot.22b", $9$)
+
+        line("plot.0", "plot.8", stroke: red + 2pt)
+        line("plot.8", "plot.10", stroke: red + 2pt)
+        line("plot.10", "plot.14", stroke: red + 2pt)
+        line("plot.14", "plot.15", stroke: red + 2pt)
+
+        content("plot.0", $31$)
+        circle("plot.0", radius: 0.05)
+        content("plot.1", $32$)
+        circle("plot.1", radius: 0.05)
+        content("plot.2", $23$)
+        circle("plot.2", radius: 0.05)
+        content("plot.3", $13$)
+        circle("plot.3", radius: 0.05)
+
+        content("plot.4", $27$)
+        circle("plot.4", radius: 0.05)
+        content("plot.5", $23$)
+        circle("plot.5", radius: 0.05)
+        content("plot.6", $15$)
+        circle("plot.6", radius: 0.05)
+        content("plot.7", $11$)
+        circle("plot.7", radius: 0.05)
+
+        content("plot.8", $18$)
+        circle("plot.8", radius: 0.05)
+        content("plot.9", $16$)
+        circle("plot.9", radius: 0.05)
+        content("plot.10", $10$)
+        circle("plot.10", radius: 0.05)
+        content("plot.11", $6$)
+        circle("plot.11", radius: 0.05)
+
+        content("plot.12", $26$)
+        circle("plot.12", radius: 0.05)
+        content("plot.13", $18$)
+        circle("plot.13", radius: 0.05)
+        content("plot.14", $7$)
+        circle("plot.14", radius: 0.05)
+        content("plot.15", $0$)
+        circle("plot.15", radius: 0.05)
+
+        content("plot.v0", $v_0$)
+        content("plot.h0", $h_0$)
+        content("plot.vk", $v_k$)
+        content("plot.hk", $h_k$)
       },
       length: 50%,
     ),
