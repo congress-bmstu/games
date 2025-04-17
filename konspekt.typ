@@ -1,6 +1,10 @@
 #import "notes.typ": notes
 
-#show: notes.with(author: "Andrey", title: "Теория игр и исследование операций")
+#show: notes.with(author: "Андрей Куприн", title: "Теория игр и исследование операций")
+
+// #show math.ZZ: it => text(fill: gradient.linear(dir: ttb, orange, black).sharp(2).repeat(20), size: 40pt)[$it$]
+
+// #show "z": it => text(fill: gradient.linear(dir: ttb, orange, black).sharp(2).repeat(40), size: 40pt)[$it$]
 
 #align(
   horizon + center,
@@ -44,3 +48,6 @@
 
 #pagebreak()
 #include "lection9.typ"
+
+#pagebreak()
+#include "lection10.typ"
